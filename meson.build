@@ -1,19 +1,19 @@
 project(
-  'mongocxx',
+  'bsoncxx',
   'cpp',
   version: '4.1.0'
 )
 
 cpp = meson.get_compiler('cpp')
 
-mongocxx_lib = cpp.find_library('mongocxx', dirs: meson.current_source_dir() + '/lib')
-mongocxx_hdr = include_directories('include')
+bsoncxx_lib = cpp.find_library('bsoncxx', dirs: meson.current_source_dir() + '/lib')
+bsoncxx_hdr = include_directories('include')
 
-mongocxx_dep = declare_dependency(
-  dependencies: mongocxx_lib,
-  include_directories: mongocxx_hdr,
+bsoncxx_dep = declare_dependency(
+  dependencies: bsoncxx_lib,
+  include_directories: bsoncxx_hdr,
 )
 
-meson.override_dependency('mongocxx', mongocxx_dep)
+meson.override_dependency('bsoncxx', bsoncxx_dep)
 
 
